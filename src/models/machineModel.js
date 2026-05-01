@@ -42,6 +42,10 @@ const machineSchema = new mongoose.Schema(
     description: {
         type: String,
         trim: true
+    },
+     isActive: {
+        type: Boolean,
+        default: true
     }
     
   },

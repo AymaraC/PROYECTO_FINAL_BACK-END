@@ -1,11 +1,15 @@
 const Machine = require('../models/machineModel');
 
-const getMachines = async (req, res) => {               // obtener todas las máquinas
+const getMachines = async (req, res) => {       // para obtener todas las máquinas
   try {
-    const machines = await Machine.find();
+    const machines = await Machine.find({ isActive: true });      // escondemos las que no están activas
+
     res.json(machines);
+
   } catch (error) {
-    res.status(500).json({ message: error.message });
+    res.status(500).json({
+      message: error.message
+    });
   }
 };
 
@@ -14,7 +18,7 @@ const getMachineById = async (req, res) => {        // obtener máquina por ID
     const machine = await Machine.findById(req.params.id);
 
     if (!machine) {
-      return res.status(404).json({ message: "Máquina no encontrada" });
+      return res.status(404).json({ message: "No tenemos ninguna máquina registrada con ese ID." });
     }
 
     res.json(machine);
@@ -45,10 +49,14 @@ const updateMachine = async (req, res) => {                 // función para act
     );
 
     if (!machine) {
-      return res.status(404).json({ message: "Máquina no encontrada" });
+      return res.status(404).json({ message: "No tenemos ninguna máquina registrada con ese ID." });
     }
 
-    res.json(machine);
+    res.json({
+      message: "Máquina actualizada correctamente", 
+      machine
+    });
+
   } catch (error) {
     res.status(400).json({ message: error.message });
   }
@@ -56,13 +64,16 @@ const updateMachine = async (req, res) => {                 // función para act
 
 const deleteMachine = async (req, res) => {             // función para eliminar una máquina
   try {
-    const machine = await Machine.findByIdAndDelete(req.params.id);
+    const machine = await Machine.findByIdAndUpdate(req.params.id,  
+      { isActive: false },          // no eliminamos el registro de esa máquina, solo le cambiamos el estado a inactivo.
+      { new: true }
+    );
 
     if (!machine) {
-      return res.status(404).json({ message: "Máquina no encontrada" });
+      return res.status(404).json({ message: "No tenemos ninguna máquina registrada con ese ID." });
     }
 
-    res.json({ message: "Máquina eliminada" });
+    res.json({ message: "Máquina desactivada correctamente" });
   } catch (error) {
     res.status(500).json({ message: error.message });
   }

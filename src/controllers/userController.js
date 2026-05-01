@@ -1,5 +1,5 @@
 // archivo para implementar register y login
-const User = require("../models/User");
+const User = require("../models/userModel.js");
 const bcrypt = require("bcrypt");
 const jwt = require("jsonwebtoken");
 const { z } = require("zod");
@@ -38,7 +38,8 @@ const register = async (req, res) => {
     await User.create({
       name,
       email: normalizedEmail,
-      password: hashedPassword
+      password: hashedPassword,
+      role: "user"            //por seguridad no dejamos crear admins desde register
     });
 
     res.status(201).json({
