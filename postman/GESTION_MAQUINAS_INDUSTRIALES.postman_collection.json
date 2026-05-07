@@ -1,0 +1,219 @@
+{
+  "info": {
+    "_postman_id": "e6568007-967b-400f-a6eb-8f3730653158",
+    "name": "GESTION_MAQUINAS_INDUSTRIALES",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "_exporter_id": "50495732",
+    "_collection_link": "https://go.postman.co/collection/50495732-e6568007-967b-400f-a6eb-8f3730653158?source=collection_link"
+  },
+  "item": [
+    {
+      "name": "Login",
+      "request": {
+        "auth": {
+          "type": "bearer",
+          "bearer": [
+            {
+              "key": "token",
+              "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY5ZmJkNTNiMmUzNDE0YjY4N2M5YzM2ZSIsInJvbGUiOiJhZG1pbiIsImlhdCI6MTc3ODExNTY2MCwiZXhwIjoxNzc4MTE5MjYwfQ.oG-CoXZ1LfwHqrro4o_GXlp6ktRDhjO80xQC5m0LyXU",
+              "type": "string"
+            }
+          ]
+        },
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "http://localhost:5000/auth/login",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "5000",
+          "path": [
+            "auth",
+            "login"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Post machine solo valido para rol admin",
+      "request": {
+        "auth": {
+          "type": "bearer",
+          "bearer": [
+            {
+              "key": "token",
+              "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY5ZmJkNTNiMmUzNDE0YjY4N2M5YzM2ZSIsInJvbGUiOiJhZG1pbiIsImlhdCI6MTc3ODExODE1NCwiZXhwIjoxNzc4MTIxNzU0fQ.qLjq2S_F0tKHT3iWL9v3YDGuVnFUoQmvjCnZ97Wpw2A",
+              "type": "string"
+            }
+          ]
+        },
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "http://localhost:5000/machines",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "5000",
+          "path": [
+            "machines"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Get machines para que me traiga todas las máquinas",
+      "request": {
+        "method": "GET",
+        "header": []
+      },
+      "response": []
+    },
+    {
+      "name": "Put solo valido para rol admin",
+      "request": {
+        "auth": {
+          "type": "bearer",
+          "bearer": [
+            {
+              "key": "token",
+              "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY5ZmJkNTNiMmUzNDE0YjY4N2M5YzM2ZSIsInJvbGUiOiJhZG1pbiIsImlhdCI6MTc3ODExODE1NCwiZXhwIjoxNzc4MTIxNzU0fQ.qLjq2S_F0tKHT3iWL9v3YDGuVnFUoQmvjCnZ97Wpw2A",
+              "type": "string"
+            }
+          ]
+        },
+        "method": "PUT",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": ""
+        },
+        "url": {
+          "raw": "http://localhost:5000/machines/:id",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "5000",
+          "path": [
+            "machines",
+            ":id"
+          ],
+          "variable": [
+            {
+              "key": "id",
+              "value": ""
+            }
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Delete solo válido para rol admin",
+      "request": {
+        "auth": {
+          "type": "bearer",
+          "bearer": [
+            {
+              "key": "token",
+              "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY5ZmJkNTNiMmUzNDE0YjY4N2M5YzM2ZSIsInJvbGUiOiJhZG1pbiIsImlhdCI6MTc3ODExODE1NCwiZXhwIjoxNzc4MTIxNzU0fQ.qLjq2S_F0tKHT3iWL9v3YDGuVnFUoQmvjCnZ97Wpw2A",
+              "type": "string"
+            }
+          ]
+        },
+        "method": "DELETE",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": ""
+        },
+        "url": {
+          "raw": "http://localhost:5000/machines/:id",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "5000",
+          "path": [
+            "machines",
+            ":id"
+          ],
+          "variable": [
+            {
+              "key": "id",
+              "value": ""
+            }
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Get accesible tanto para user como para admin",
+      "protocolProfileBehavior": {
+        "disableBodyPruning": true
+      },
+      "request": {
+        "auth": {
+          "type": "bearer",
+          "bearer": [
+            {
+              "key": "token",
+              "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY5ZmJkNTNiMmUzNDE0YjY4N2M5YzM2ZSIsInJvbGUiOiJhZG1pbiIsImlhdCI6MTc3ODExODE1NCwiZXhwIjoxNzc4MTIxNzU0fQ.qLjq2S_F0tKHT3iWL9v3YDGuVnFUoQmvjCnZ97Wpw2A",
+              "type": "string"
+            }
+          ]
+        },
+        "method": "GET",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": ""
+        },
+        "url": {
+          "raw": "http://localhost:5000/machines/:id",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "5000",
+          "path": [
+            "machines",
+            ":id"
+          ],
+          "variable": [
+            {
+              "key": "id",
+              "value": ""
+            }
+          ]
+        }
+      },
+      "response": []
+    }
+  ]
+}

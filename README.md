@@ -246,6 +246,14 @@ Simplemente cambia su estado `isActive` a `false`.
 ```
 
 ---
+# Colección de Postman
+
+La colección utilizada para realizar pruebas de la API se encuentra incluida en:
+
+```text
+GESTION_MAQUINAS_INDUSTRIALES.postman_collection
+```
+
 
 # Seguridad implementada
 
