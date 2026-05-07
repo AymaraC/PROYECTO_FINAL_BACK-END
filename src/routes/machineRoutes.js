@@ -16,7 +16,6 @@ const { auth, isAdmin } = require("../middleware/authMiddleware");
 router.get("/", getMachines);
 router.get("/:id", getMachineById);
 
-
 // rutas protegidas
 router.post("/", auth, isAdmin, createMachine);
 router.put("/:id", auth, isAdmin, updateMachine);

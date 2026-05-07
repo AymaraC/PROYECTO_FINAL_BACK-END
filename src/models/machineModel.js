@@ -39,10 +39,12 @@ const machineSchema = new mongoose.Schema(
         "brazo_articulado_diesel_4x4",
         "autoelevador"]
     },
+
     description: {
         type: String,
         trim: true
     },
+    
      isActive: {
         type: Boolean,
         default: true

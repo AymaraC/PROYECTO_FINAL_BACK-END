@@ -68,7 +68,7 @@ const login = async (req, res) => {
       return res.status(400).json({ message: "Credenciales inválidas" });
     }
 
-    const isMatch = await bcrypt.compare(password, user.password);          // comparamos contraseñas para ver el acceso
+    const isMatch = await bcrypt.compare(password, user.password);          // realizamos una comparación segura sin mostrar la contraseña 
     if (!isMatch) {
       return res.status(400).json({ message: "Credenciales inválidas" });
     }

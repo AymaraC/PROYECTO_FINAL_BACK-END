@@ -20,6 +20,7 @@ const userSchema = new mongoose.Schema(
       type: String,
       required: true
     },
+    
     role: {                     // roles con distintos permisos.
       type: String,
       enum: ["admin", "user"],
